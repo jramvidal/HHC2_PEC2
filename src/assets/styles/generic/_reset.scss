@@ -1,0 +1,43 @@
+// GENERIC: RESET (ITCSS)
+
+@use "../settings/variables" as v;
+
+// Remove default margin, padding and set box-sizing globally
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+// Normalize base font and background styles
+html {
+  font-size: v.$font-size-base;
+  font-family: v.$font-primary;
+  color: v.$color-dark;
+  background-color: v.$color-light;
+}
+
+// Remove default list styles
+ul,
+ol {
+  list-style: none;
+}
+
+// Remove underline and inherit color for links
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+// Improve button behavior and appearance
+button {
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+// Make images responsive bydefault
+img {
+  max-width: 100%;
+  height: auto;
+}

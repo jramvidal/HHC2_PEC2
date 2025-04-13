@@ -1,0 +1,36 @@
+// TOOLS: MIXINS (ITCSS)
+
+@use "../settings/variables" as v;
+
+// MEDIA QUERIES (MOBILE-FIRST)
+// Tablet breakpoint (min-width: 768px)
+@mixin tablet {
+  @media (min-width: v.$bp-tablet) {
+    @content;
+  }
+}
+
+// Desktop breakpoint (min-width: 1024px)
+@mixin desktop {
+  @media (min-width: v.$bp-desktop) {
+    @content;
+  }
+}
+
+// FLEXBOX HELPERS
+
+// Center content both vertically and horizontally
+@mixin flex-center {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+// RESPONSIVE TEXT SIZE
+
+// Fluid typography between a min and max value based on viewport width
+@mixin fluid-text($min, $max) {
+  font-size: calc(
+    #{$min}px + (#{$max} - $min) * ((100vw - 320px) / (1024 - 320))
+  );
+}

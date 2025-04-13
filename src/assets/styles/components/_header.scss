@@ -1,0 +1,80 @@
+// COMPONENTS: HEADER (ITCSS + BEM)
+
+@use "../settings/variables" as v;
+@use "../tools/index" as m;
+
+.header {
+  background-color: v.$color-primary;
+  padding: v.$spacing-md 0;
+
+  &__container {
+    // Flex container centered by default (column direction)
+    @include m.flex-center;
+
+    flex-direction: column;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 v.$spacing-md;
+  }
+
+  &__logo {
+    // Logo with shadow and responsive size
+    box-shadow: 10px 10px 20px rgb(0 0 0 / 50%);
+    width: 460px; // Aumenta en mobile y tablet
+    height: auto;
+    transition: transform v.$transition-speed;
+
+    // Zoom effect on hover
+    &:hover {
+      transform: scale(1.1);
+    }
+  }
+
+  &__title {
+    // Main header title
+    padding-top: v.$spacing-lg;
+    font-size: m.px-to-rem(40);
+    font-weight: bold;
+    text-transform: uppercase;
+    color: v.$color-light;
+    text-align: center;
+    margin-top: v.$spacing-sm;
+  }
+
+  /* --------------------------------------------------------------
+   BEM: "Use of modifier to vary the style of an element"
+   ------------------------------------------------------------- */
+
+  &__title--shadow {
+    color: v.$color-secondary;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+  }
+}
+
+// Tablet: increase logo size
+@include m.tablet {
+  .header__logo {
+    width: 600px;
+  }
+}
+
+// Desktop: align logo to the left, center title horizontally
+@include m.desktop {
+  .header__container {
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+  }
+
+  .header__logo {
+    width: 320px;
+  }
+
+  .header__title {
+    // Center the title absolutely within the header
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}

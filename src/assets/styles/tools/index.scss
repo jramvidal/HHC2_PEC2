@@ -1,0 +1,5 @@
+// TOOLS INDEX (ITCSS)
+// Forwards all global mixins and functions for easier access across layers//
+
+@forward "mixins"; // Reusable mixins (media queries, flex helpers, etc.)
+@forward "functions"; // Utility functions (e.g. px-to-rem, spacing, etc.)

@@ -1,0 +1,8 @@
+// COMPONENTS: INDEX (ITCSS)
+// This file forwards all layout/component files to be imported elsewhere from a single entry point.
+
+@forward "header";   // Site header layout
+@forward "footer";   // Site footer layout
+@forward "home";     // Homepage layout/content block
+@forward "buttons";  // Reusable button components (currently empty)
+@forward "cards";    // Card components for displaying content blocks (currently empty)

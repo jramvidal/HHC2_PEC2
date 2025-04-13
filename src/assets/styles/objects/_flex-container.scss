@@ -1,0 +1,13 @@
+// OBJECT: FLEX CONTAINER
+
+@use "../settings/variables" as v;
+
+// A reusable flexbox layout object for horizontal or vertical content blocks
+.o-flex-container {
+  display: flex;
+  flex-direction: column; // Mobile-first: stacked layout
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto; // Horizontally center the container
+  padding: 0 v.$spacing-md; // Consistent horizontal padding
+}

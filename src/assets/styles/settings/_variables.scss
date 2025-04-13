@@ -1,0 +1,24 @@
+// SETTINGS: VARIABLES
+
+// COLOR PALETTE
+$color-primary: #005f73; // Main brand color
+$color-secondary: #b8a474; // Secondary accent color
+$color-light: #f8f8f8; // Light background color
+$color-dark: #222; // Default text color
+
+// TYPOGRAPHY
+$font-primary: "Arial", sans-serif; // Main font family
+$font-size-base: 16px; // Base font size (used in rem conversions)
+
+// BREAKPOINTS
+$bp-tablet: 768px; // Min-width for tablet layout
+$bp-desktop: 1024px; // Min-width for desktop layout
+
+// SPACING
+$spacing-sm: 8px; // Small spacing (e.g. margins/paddings)
+$spacing-md: 16px; // Medium spacing
+$spacing-lg: 32px; // Large spacing
+$spacing-xl: 64px; // Extra large spacing
+
+// TRANSITIONS
+$transition-speed: 0.3s ease-in-out; // Default transition timing for hover/focus effects
