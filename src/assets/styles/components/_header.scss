@@ -18,22 +18,15 @@
   }
 
   &__logo {
-    // Logo with shadow and responsive size
-    box-shadow: 10px 10px 20px rgb(0 0 0 / 50%);
-    width: 460px; // Aumenta en mobile y tablet
+    // Logo with responsive size
+    width: 150px; // Aumenta en mobile y tablet
     height: auto;
-    transition: transform v.$transition-speed;
-
-    // Zoom effect on hover
-    &:hover {
-      transform: scale(1.1);
-    }
   }
 
   &__title {
     // Main header title
     padding-top: v.$spacing-lg;
-    font-size: m.px-to-rem(40);
+    font-size: m.px-to-rem(50);
     font-weight: bold;
     text-transform: uppercase;
     color: v.$color-light;
@@ -55,7 +48,7 @@
 // Tablet: increase logo size
 @include m.tablet {
   .header__logo {
-    width: 600px;
+    width: 200px;
   }
 }
 
@@ -68,7 +61,7 @@
   }
 
   .header__logo {
-    width: 320px;
+    width: 150px;
   }
 
   .header__title {

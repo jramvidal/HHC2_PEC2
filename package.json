@@ -5,8 +5,8 @@
   "description": "Boilerplate for Advanced HTML/CSS Tools UOC students",
   "scripts": {
     "stylelint": "stylelint src/assets/styles/**/*.scss",
-    "parcel:serve": "parcel -p 8123 --target web --open",
-    "parcel:build": "parcel build --target web --no-source-maps --no-cache",
+    "parcel:serve": "parcel src/*.html -p 8123 --target web --open",
+    "parcel:build": "parcel build src/*.html --target web --no-source-maps --no-cache",
     "clean": "rimraf dist .cache .cache-loader .parcel-cache",
     "dev_disabled": "npm-run-all clean parcel:serve",
     "dev": "npm-run-all -p clean \"stylelint --fix 'src/assets/styles/**/*.scss'\" parcel:serve",
@@ -18,7 +18,6 @@
     "web": {
       "context": "browser",
       "publicUrl": "./",
-      "source": "src/index.html",
       "engines": {
         "browsers": "last 2 versions, > 0.5%, not dead"
       }

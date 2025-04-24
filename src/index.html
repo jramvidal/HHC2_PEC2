@@ -5,91 +5,85 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <!-- FontAwesome icon library -->
-    <link
-      rel="stylesheet"
-      href="/node_modules/@fortawesome/fontawesome-free/css/all.min.css"
-    />
-
     <!-- Main SCSS stylesheet -->
     <link rel="stylesheet" href="./assets/styles/main.scss" />
   </head>
   <body>
-    <!-- Header include (reused across multiple pages if needed) -->
+    <!-- Header include -->
     <include src="./views/header.html"></include>
-    <main class="home">
-      <div class="home__info">
-        <h2 class="home__subtitle">JORNADES SOBRE ECONOMIA CIRCULAR</h2>
-        <i class="home__icon fas fa-utensils fa-4x"></i>
+
+    <main class="layout">
+      <div class="layout__container">
+        <section class="layout__hero">
+          <h1 class="layout__title">JORNADES SOBRE ECONOMIA CIRCULAR</h1>
+        </section>
+
+        <section class="layout__intro">
+          <div class="layout__content">
+            <div class="layout__text">
+              <h3 class="layout__headline">Dimecres 12 de Maig</h3>
+              <h2 class="layout__heading">Què és l’economia circular?</h2>
+              <p class="layout__text">
+                Vols entendre com funciona l’economia circular i per què és clau per a un futur sostenible? En aquesta xerrada, explorarem els principis bàsics, els beneficis i com aplicar-los en el teu dia a dia. No et quedis enrere en el canvi!
+              </p>
+            </div>
+            <div class="layout__image">
+              <img src="./assets/images/grid01.jpg" alt="Economia circular" />
+            </div>
+          </div>
+        </section>
+
+        <section class="layout__principles">
+          <div class="layout__content">
+            <div class="layout__text">
+              <h3 class="layout__headline">Dijous 13 de Maig</h3>
+              <h2 class="layout__heading">Principis clau</h2>
+              <p class="layout__text">
+                Descobreix com transformar el teu negoci i el teu entorn amb estratègies sostenibles! Vine a aquesta xerrada inspiradora i aprèn a reduir residus, optimitzar recursos i impulsar el canvi.
+              </p>
+            </div>
+            <div class="layout__image">
+              <img src="./assets/images/grid02.jpg" alt="Principis de l’economia circular" />
+            </div>
+          </div>
+        </section>
+
+        <section class="layout__benefits">
+          <div class="layout__content">
+            <div class="layout__text">
+              <h3 class="layout__headline">Divendres 14 de Maig</h3>
+              <h2 class="layout__heading">Beneficis ambientals</h2>
+              <p class="layout__text">
+                Descobreix com l’economia circular contribueix a la preservació del medi ambient! Parlarem de la reducció de residus, l’ús eficient dels recursos i l’impacte positiu en la biodiversitat. Uneix-te a la conversa i sigues part de la transformació sostenible!
+              </p>
+            </div>
+            <div class="layout__image">
+              <img src="./assets/images/grid03.jpg" alt="Beneficis ambientals" />
+            </div>
+          </div>
+        </section>
+
+        <section class="layout__call-to-action">
+          <div class="layout__content">
+            <div class="layout__text">
+              <h3 class="layout__headline">Dissabte 15 de Maig</h3>
+              <h2 class="layout__heading">Actua ara</h2>
+              <p class="layout__text">
+                L’economia circular és el futur, però cal començar avui! En aquesta xerrada, explorarem accions concretes per reduir residus, reutilitzar recursos i contribuir al canvi sostenible. No esperis més per formar part de la solució!
+              </p>
+            </div>
+            <div class="layout__image">
+              <img src="./assets/images/grid04.jpg" alt="Accions sostenibles" />
+            </div>
+          </div>
+        </section>
       </div>
-      <section class="home__container">
-        <div class="home__text">
-          <p>
-            El Baix Llobregat ofereix una riquesa culinària basada en productes
-            de proximitat i receptes tradicionals. Aquesta regió és coneguda per
-            la seva gran varietat d'ingredients frescos, collits directament
-            dels camps i conreats amb tècniques sostenibles. Els agricultors
-            locals han preservat mètodes tradicionals per garantir la qualitat i
-            autenticitat dels aliments, oferint una experiència gastronòmica
-            única. Amb una llarga tradició culinària, la cuina del Baix
-            Llobregat combina sabors autèntics amb innovació, donant lloc a
-            plats exquisits que reflecteixen la riquesa cultural i gastronòmica
-            de la regió.
-          </p>
-          <h3 class="home__title">Aquest text és provisional</h3>
-          <p>
-            El pollastre Pota Blava és una raça autòctona de pollastre amb
-            Denominació d'Origen Protegida (DOP), reconeguda pel seu
-            característic color blau a les potes i per la qualitat de la seva
-            carn, que és més tendra, melosa i amb un sabor intens en comparació
-            amb altres varietats comercials. El seu creixement és més lent i la
-            seva alimentació es basa en cereals naturals, cosa que contribueix a
-            millorar-ne la textura i el gust. Tradicionalment, aquest pollastre
-            s’ha cuinat en festes i celebracions familiars, i avui dia continua
-            sent un ingredient essencial en moltes receptes locals.
-          </p>
-          <p>
-            Cultivada al Parc Agrari del Baix Llobregat, la carxofa del Prat és
-            una de les més apreciades de Catalunya pel seu sabor dolç i suau,
-            així com per la seva textura tendra. La seva temporada comença a la
-            tardor i s’allarga fins a la primavera, convertint-se en un producte
-            fresc de proximitat molt valorat pels xefs i la cuina tradicional.
-            És especialment coneguda per les seves propietats saludables, ja que
-            és rica en antioxidants, fibra i minerals beneficiosos per a la
-            digestió i el fetge.
-          </p>
-          <h3 class="home__title">Aquest text és provisional</h3>
-          <p>
-            Aquest plat es pot preparar de diverses maneres, però les més
-            tradicionals són al forn o en guisat, per tal de ressaltar els
-            sabors naturals dels ingredients. Se sol cuinar amb un sofregit suau
-            de ceba i all, afegint-hi vi blanc o brou de pollastre per
-            potenciar-ne el gust. Algunes versions incorporen herbes aromàtiques
-            com el romaní i el llorer, mentre que altres cuiners opten per
-            afegir-hi un toc de llimona per equilibrar els sabors. A més de ser
-            un plat típic del Prat, el pollastre Pota Blava amb carxofes és un
-            exemple perfecte de cuina de proximitat, que combina productes de
-            quilòmetre zero i manté viva la tradició culinària del territori.
-          </p>
-        </div>
-        <div class="home__image">
-          <img
-            src="./assets/images/plato-tipico1.jpg"
-            alt="Plato típico del Baix Llobregat"
-          />
-          <img
-            src="./assets/images/plato-tipico2.jpg"
-            alt="Plato típico del Baix Llobregat"
-          />
-        </div>
-      </section>
     </main>
 
-    <!-- Footer include (contact info, etc.) -->
+    <!-- Footer include -->
     <include src="./views/footer.html"></include>
 
-    <!-- Main JavaScript file (using ES modules) -->
+    <!-- JS -->
     <script type="module" src="./assets/scripts/main.js"></script>
-    <!-- do not remove this line! -->
   </body>
 </html>
