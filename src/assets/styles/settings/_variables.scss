@@ -8,7 +8,7 @@ $color-dark: #222; // Default text color
 
 // TYPOGRAPHY
 $font-primary: "Arial", sans-serif; // Main font family
-$font-size-base: 16px; // Base font size (used in rem conversions)
+$font-size-base: 1rem; // ✅ Base font size (compatible con Bootstrap)
 
 // BREAKPOINTS
 $bp-tablet: 768px; // Min-width for tablet layout
@@ -22,7 +22,6 @@ $spacing-xl: 64px; // Extra large spacing
 
 // TRANSITIONS
 $transition-speed: 0.3s ease-in-out; // Default transition timing for hover/focus effects
-
 
 // EFFECTS
 $border-radius: 8px;

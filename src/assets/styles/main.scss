@@ -3,29 +3,36 @@
  * Do not include SCSS code in this file.
  */
 
-// 1. Settings (global variables)
-@use "settings/variables" as v;
+// 1. Settings
+@import "settings/variables";
+@import "settings/bootstrap-custom";
 
-// 2. Tools (SCSS mixins and functions)
-@use "tools/index" as t;
+// 2. Bootstrap framework
+@import "bootstrap/scss/bootstrap";
 
-// 3. Generic (reset)
-@use "generic/reset" as g;
+// 3. Tools
+@import "tools/index";
 
-// 4. Elements (typography and HTML elements)
-@use "elements/typography" as e;
+// 4. Generic
+@import "generic/reset";
 
-// 5. Objects (Layout structures)
-@use "objects/index" as o;
+// 5. Elements
+@import "elements/typography";
 
-// 6. Components (visual UI parts)
-@use "components/index" as c;
+// 6. Objects
+@import "objects/index";
 
-// 7. Utilities (helper utility classes)
-@use "utilities/index" as u;
+// 7. Components
+@import "components/index";
+@import "components/speakers";
+@import "components/news";
 
-// External libraries
-@use "bootstrap/scss/bootstrap" as bs;
+// 8. Utilities
+@import "utilities/index";
+
+
+
+
 
 /**
  * Do NOT include anything else in this file!

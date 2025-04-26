@@ -1,36 +1,36 @@
 // COMPONENTS: FOOTER (ITCSS + BEM)
 
-@use "../settings/variables" as v;
-@use "../tools/index" as m;
+@import "../settings/variables" ;
+@import "../tools/index" ;
 
 .footer {
-  background-color: v.$color-primary;
-  color: v.$color-light;
+  background-color: $color-primary;
+  color: $color-light;
   text-align: center;
-  padding: 0 0 v.$spacing-lg;
+  padding: 0 0 $spacing-lg;
 
   &__container {
     // Inner wrapper with white background and dark text
-    background-color: v.$color-light;
-    color: v.$color-dark;
+    background-color: $color-light;
+    color: $color-dark;
     max-width: 1200px;
     margin: 0 auto;
-    padding: v.$spacing-lg;
+    padding: $spacing-lg;
   }
 
   &__title {
     // Main footer heading
-    font-size: m.px-to-rem(26);
+    font-size: px-to-rem(26);
     font-weight: bold;
-    color: v.$color-primary;
+    color: $color-primary;
   }
 
   &__icon {
     // Decorative icon below the title
     display: block;
     width: auto;
-    margin: v.$spacing-md 0;
-    color: v.$color-secondary;
+    margin: $spacing-md 0;
+    color: $color-secondary;
   }
 
   &__content {
@@ -38,32 +38,32 @@
     display: flex;
     flex-direction: column;
     text-align: center;
-    margin-top: v.$spacing-lg;
+    margin-top: $spacing-lg;
   }
 
   &__section {
     // Individual section inside the content area
-    padding: v.$spacing-md 0;
+    padding: $spacing-md 0;
   }
 
   &__subtitle {
     // Subtitle for each section
-    font-size: m.px-to-rem(18);
+    font-size: px-to-rem(18);
     font-weight: bold;
-    color: v.$color-secondary;
-    margin-bottom: v.$spacing-sm;
+    color: $color-secondary;
+    margin-bottom: $spacing-sm;
   }
 
   &__bottom {
     // Footer bottom line (legal info or licensing)
-    margin-top: v.$spacing-lg;
-    padding-top: v.$spacing-md;
-    font-size: m.px-to-rem(14);
+    margin-top: $spacing-lg;
+    padding-top: $spacing-md;
+    font-size: px-to-rem(14);
   }
 }
 
 // Desktop layout: three columns and centered content
-@include m.desktop {
+@include desktop {
   .footer__content {
     flex-direction: row;
     justify-content: space-between;
@@ -72,7 +72,7 @@
 
   .footer__section {
     flex: 1;
-    padding: 0 v.$spacing-md;
+    padding: 0 $spacing-md;
     display: flex;
     flex-direction: column;
     align-items: center;

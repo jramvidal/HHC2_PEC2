@@ -1,5 +1,119 @@
-// COMPONENT: SPEAKERS (ITCSS + BEM)
+.layout {
+
+  &__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding-inline: 1rem;
+
+    /* Activamos container queries */
+    container-type: inline-size;
+  }
+
+  &__title {
+    color: $color-primary;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 2rem;
+    transition: font-size 0.3s ease;
+    font-size: 2rem; /* valor base por si container queries no funciona */
+  }
+
+  /* Container queries específicas para el título */
+  @container (width <= 400px) {
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+
+  @container (width > 400px) and (width <= 800px) {
+    &__title {
+      font-size: 2.4rem;
+    }
+  }
+
+  @container (width > 800px) {
+    &__title {
+      font-size: 3.2rem;
+    }
+  }
+}
 
 .speakers {
-    // TODO: styles to be added
+  padding-block: 2rem;
+
+  &__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+    justify-content: center;
+    padding-top: 2rem;
   }
+}
+
+.speaker {
+  background-color: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 0.75rem;
+  overflow: hidden;
+  width: 100%;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+  transition: transform 0.3s ease;
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+  }
+
+  &__image {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  &__date {
+    margin-top: 1rem;
+    font-size: 0.9rem;
+    color: #7a7a7a;
+    font-weight: 500;
+  }
+
+  &__title {
+    margin: 0.5rem 1rem 0;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #333;
+  }
+
+  &__name {
+    margin: 0.5rem 1rem 1rem;
+    font-size: 1rem;
+    color: #555;
+  }
+}
+
+/* Responsive para móviles */
+@media (width <= 600px) {
+  .speaker {
+    max-width: 90%;
+  }
+}
+
+/* Responsive para tablets */
+@media (width > 600px) and (width <= 991px) {
+  .speaker {
+    flex: 0 0 calc(50% - 2rem);
+    max-width: calc(50% - 2rem);
+  }
+}
+
+/* Responsive para escritorio */
+@media (width >= 992px) {
+  .speaker {
+    flex: 0 0 calc(33.333% - 2rem);
+    max-width: calc(33.333% - 2rem);
+  }
+}

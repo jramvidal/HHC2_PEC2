@@ -1,18 +1,18 @@
 // TOOLS: MIXINS (ITCSS)
 
-@use "../settings/variables" as v;
+@import "../settings/variables";
 
 // MEDIA QUERIES (MOBILE-FIRST)
 // Tablet breakpoint (min-width: 768px)
 @mixin tablet {
-  @media (min-width: v.$bp-tablet) {
+  @media (min-width: $bp-tablet) {
     @content;
   }
 }
 
 // Desktop breakpoint (min-width: 1024px)
 @mixin desktop {
-  @media (min-width: v.$bp-desktop) {
+  @media (min-width: $bp-desktop) {
     @content;
   }
 }

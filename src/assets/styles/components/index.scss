@@ -1,11 +1,11 @@
 // COMPONENTS: INDEX (ITCSS)
 // This file forwards all layout/component files to be imported elsewhere from a single entry point.
 
-@forward "header";    // Site header layout
-@forward "footer";    // Site footer layout
-@forward "home";      // Homepage layout/content block
-@forward "buttons";   // Reusable button components (currently empty)
-@forward "cards";     // Card components for displaying content blocks (currently empty)
-@forward "speakers";  // Page layout/content for speakers
-@forward "news";      // Page layout/content for news
-@forward "form";      // Page layout/content for the contact/form section
+@import "header";    // Site header layout
+@import "footer";    // Site footer layout
+@import "home";      // Homepage layout/content block
+@import "buttons";   // Reusable button components (currently empty)
+@import "cards";     // Card components for displaying content blocks (currently empty)
+@import "speakers";  // Page layout/content for speakers
+@import "news";      // Page layout/content for news
+@import "form";      // Page layout/content for the contact/form section

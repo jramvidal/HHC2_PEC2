@@ -1,5 +1,108 @@
-// COMPONENT: NEWS (ITCSS + BEM)
+// COMPONENTS: NEWS PAGE (ITCSS + BEM)
 
-.speakers {
-    // TODO: styles to be added
+.news-page {
+  .layout__container {
+    container-type: inline-size;
   }
+
+  .layout__title {
+    color: $color-primary;
+    font-weight: bold;
+    text-transform: uppercase;
+    text-align: center;
+    margin: 0 0 2rem;
+    transition: font-size 0.3s ease;
+    font-size: 2rem;
+
+    @container (width <= 400px) {
+      font-size: 1.8rem;
+    }
+
+    @container (width > 400px) and (width <= 800px) {
+      font-size: 2.4rem;
+    }
+
+    @container (width > 800px) {
+      font-size: 3.2rem;
+    }
+  }
+}
+
+.news {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+
+  &__header {
+    text-align: center;
+
+    .news__headline {
+      font-size: 1.8rem;
+      color: $color-primary;
+      font-weight: bold;
+      margin-bottom: 0.5rem;
+    }
+
+    .news__meta {
+      font-size: 0.9rem;
+      color: $color-secondary;
+    }
+  }
+
+  &__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+
+    :is(h2, h3) {
+      font-size: 1.6rem;
+      color: $color-primary;
+      margin-top: 2rem;
+    }
+
+    blockquote {
+      font-style: italic;
+      border-left: 4px solid $color-secondary;
+      padding-left: 1rem;
+      margin: 1rem 0;
+      color: #555;
+    }
+
+    ul, ol {
+      padding-left: 1.5rem;
+      list-style-type: disc;
+
+      li {
+        margin-bottom: 0.5rem;
+      }
+    }
+
+    .news__image {
+      width: 100%;
+      height: auto;
+      border-radius: $border-radius;
+      box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+      transition: transform 0.4s ease;
+
+      &:hover {
+        transform: scale(1.02);
+      }
+    }
+
+    // Usamos :has() para modificar párrafos que tienen imagen justo después
+    p:has(+ .news__image) {
+      margin-bottom: 0;
+    }
+  }
+
+  &__footer {
+    text-align: center;
+    font-size: 0.9rem;
+    color: #777;
+    margin-top: 2rem;
+  }
+}

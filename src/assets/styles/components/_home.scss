@@ -1,86 +1,108 @@
 // COMPONENTS: HOME (ITCSS + BEM)
 
-@use "../settings/variables" as v;
-@use "../tools/index" as m;
-@use "../objects/flex-container";
-@use "../objects/image-group";
-@use "../tools/mixins" as *;
+@import "../settings/variables";
+@import "../tools/index";
+@import "../objects/flex-container";
+@import "../objects/image-group";
+@import "../tools/mixins";
 
 .layout {
-  background-color: v.$color-primary;
-  color: v.$color-light;
-  padding-top: v.$spacing-lg;
+  background-color: $color-primary;
+  color: $color-light;
+  padding-top: $spacing-md;
   padding-bottom: 0;
 
   &__container {
-    background-color: v.$color-light;
-    color: v.$color-dark;
+    background-color: $color-light;
+    color: $color-dark;
     max-width: 1200px;
     margin: 0 auto;
-    padding: v.$spacing-lg;
+    padding: $spacing-lg;
     gap: 2rem;
     display: grid;
     grid-template-columns: 1fr;
-  
+
     @include tablet {
       gap: 3rem;
     }
-  
+
     // Fallback con Flexbox si no hay soporte para Grid
     @supports not (display: grid) {
       display: flex;
       flex-direction: column;
-  
+
       @include tablet {
         flex-flow: row wrap;
         justify-content: space-between;
       }
     }
   }
-  
+
   // Estilos separados para los hijos en fallback
   @supports not (display: grid) {
     .layout__container > * {
       @include tablet {
-        flex: 1 1 calc(50% - v.$spacing-md);
-        margin-bottom: v.$spacing-md;
+        flex: 1 1 calc(50% - $spacing-md);
+        margin-bottom: $spacing-md;
       }
-  
+
       @include desktop {
-        flex: 1 1 calc(33.33% - v.$spacing-md);
+        flex: 1 1 calc(33.33% - $spacing-md);
       }
     }
   }
 
   &__hero {
     text-align: center;
-    padding: v.$spacing-xl 0;
-    background-color: v.$color-light;
-    color: v.$color-dark;
+    padding: $spacing-xl 0;
+    background-color: $color-light;
+    color: $color-dark;
+
+    /* Activamos container queries en el hero */
     container-type: inline-size;
   }
 
   &__title {
-    color: v.$color-primary;
-    font-size: clamp(2rem, 6cqw, 3.5rem);
+    color: $color-primary;
+    font-size: 2rem;
     font-weight: bold;
     text-transform: uppercase;
     margin: 0;
+    transition: font-size 0.3s ease;
+  }
+
+  /* Container queries específicas para el título */
+  @container (width <= 400px) {
+    &__title {
+      font-size: 1.8rem;
+    }
+  }
+
+  @container (width > 400px) and (width <= 800px) {
+    &__title {
+      font-size: 2.4rem;
+    }
+  }
+
+  @container (width > 800px) {
+    &__title {
+      font-size: 3.2rem;
+    }
   }
 
   &__headline {
-    color: v.$color-secondary;
-    border-left: .4rem solid v.$color-secondary;
-    margin-bottom: v.$spacing-md;
+    color: $color-secondary;
+    border-left: .4rem solid $color-secondary;
+    margin-bottom: $spacing-md;
     padding-left: 8px;
-    font-size: m.px-to-rem(24);
+    font-size: px-to-rem(24);
     font-weight: bold;
   }
 
   &__content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: v.$spacing-md;
+    gap: $spacing-md;
 
     @include tablet {
       grid-template-columns: 1fr 1fr;
@@ -100,7 +122,7 @@
     img {
       max-width: 100%;
       height: auto;
-      border-radius: v.$border-radius;
+      border-radius: $border-radius;
       box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
       transition: transform 0.4s ease, box-shadow 0.4s ease;
 
@@ -112,8 +134,8 @@
   }
 
   &__heading {
-    color: v.$color-primary;
+    color: $color-primary;
     font-weight: bold;
-    margin-bottom: v.$spacing-sm;
+    margin-bottom: $spacing-sm;
   }
 }

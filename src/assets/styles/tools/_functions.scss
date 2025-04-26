@@ -1,8 +1,5 @@
 // TOOLS: FUNCTIONS (ITCSS)
 
-@use "sass:math"; // Sass math module for calculations
-@use "../settings/variables" as v;
-
 // Removes units from a value (e.g. px → number)
 // Useful for consistent mathematical operations
 @function strip-units($value) {
@@ -10,11 +7,11 @@
 }
 
 // Converts pixel values to rems based on the base font size
-@function px-to-rem($px, $base: v.$font-size-base) {
-  @return math.div(strip-units($px), strip-units($base)) * 1rem;
+@function px-to-rem($px, $base: 16) {
+  @return calc(#{$px} / #{$base} * 1rem);
 }
 
 // Generates spacing based on the base size
 @function spacing($factor) {
-  @return $factor * v.$spacing-md;
+  @return $factor * $spacing-md;
 }

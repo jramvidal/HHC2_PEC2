@@ -1,73 +1,105 @@
-// COMPONENTS: HEADER (ITCSS + BEM)
-
-@use "../settings/variables" as v;
-@use "../tools/index" as m;
+@import "../settings/variables";
+@import "../tools/index";
 
 .header {
-  background-color: v.$color-primary;
-  padding: v.$spacing-md 0;
+  background-color: $color-primary;
+  padding: $spacing-md 0;
 
   &__container {
-    // Flex container centered by default (column direction)
-    @include m.flex-center;
-
+    display: flex;
     flex-direction: column;
+    align-items: center;
+    position: relative;
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 v.$spacing-md;
+    padding: 0 $spacing-md;
   }
 
   &__logo {
-    // Logo with responsive size
-    width: 150px; // Aumenta en mobile y tablet
+    width: 150px;
     height: auto;
   }
 
   &__title {
-    // Main header title
-    padding-top: v.$spacing-lg;
-    font-size: m.px-to-rem(50);
+    margin-top: $spacing-sm;
+    padding-top: $spacing-md;
+    font-size: px-to-rem(42);
     font-weight: bold;
     text-transform: uppercase;
-    color: v.$color-light;
+    color: $color-light;
     text-align: center;
-    margin-top: v.$spacing-sm;
+    position: static;
+    transform: none;
   }
 
-  /* --------------------------------------------------------------
-   BEM: "Use of modifier to vary the style of an element"
-   ------------------------------------------------------------- */
-
   &__title--shadow {
-    color: v.$color-secondary;
+    color: $color-secondary;
     letter-spacing: 2px;
     text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
   }
 }
 
-// Tablet: increase logo size
-@include m.tablet {
-  .header__logo {
-    width: 200px;
+.navbar {
+  background-color: transparent; // ya hereda fondo del header
+  width: 100%;
+  margin-top: $spacing-md;
+}
+
+.navbar-toggler {
+  margin-left: auto;
+  margin-right: $spacing-md;
+  border-color: $color-secondary;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.nav-link {
+  color: $color-light;
+  font-weight: 600;
+
+  &:hover {
+    color: $color-secondary;
+  }
+
+  &.active {
+    color: $color-secondary;
   }
 }
 
-// Desktop: align logo to the left, center title horizontally
-@include m.desktop {
+// Desktop
+@include desktop {
   .header__container {
     flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
-  }
-
-  .header__logo {
-    width: 150px;
+    justify-content: space-between;
+    align-items: flex-start;
   }
 
   .header__title {
-    // Center the title absolutely within the header
+    font-size: px-to-rem(52);
     position: absolute;
+    top: 50%;
     left: 50%;
-    transform: translateX(-50%);
+    transform: translate(-50%, -50%);
+    margin-top: 0;
+    padding-top: 0;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    justify-content: flex-end;
+    gap: 2rem;
+  }
+
+  .navbar {
+    margin-top: 0;
+  }
+
+  .navbar-collapse {
+    margin-top: -1rem; // o -2rem, ajusta según prefieras
   }
 }
