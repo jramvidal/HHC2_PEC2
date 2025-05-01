@@ -13,10 +13,14 @@
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 $spacing-md;
+
+    // Enable container queries if needed later
+    container-type: inline-size;
+    container-name: header-container;
   }
 
   &__logo {
-    width: 150px;
+    width: clamp(100px, 20vw, 150px); // Fluid, responsive logo size
     height: auto;
   }
 
@@ -35,12 +39,12 @@
   &__title--shadow {
     color: $color-secondary;
     letter-spacing: 2px;
-    text-shadow: 2px 2px 4px rgb(0 0 0 / 30%);
+    text-shadow: 2px 2px 4px rgb(0 0 0 / 30%); // Subtle shadow for emphasis
   }
 }
 
 .navbar {
-  background-color: transparent; // ya hereda fondo del header
+  background-color: transparent; // Inherits header background
   width: 100%;
   margin-top: $spacing-md;
 }
@@ -49,6 +53,10 @@
   margin-left: auto;
   margin-right: $spacing-md;
   border-color: $color-secondary;
+}
+
+.navbar-collapse {
+  width: 100%;
 }
 
 .navbar-nav {
@@ -71,7 +79,7 @@
   }
 }
 
-// Desktop
+// Desktop layout adjustments
 @include desktop {
   .header__container {
     flex-direction: row;
@@ -100,6 +108,6 @@
   }
 
   .navbar-collapse {
-    margin-top: -1rem; // o -2rem, ajusta según prefieras
+    margin-top: -1rem; // Optional negative margin for vertical alignment
   }
 }

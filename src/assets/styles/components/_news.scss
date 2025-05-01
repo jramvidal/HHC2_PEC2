@@ -1,30 +1,35 @@
 // COMPONENTS: NEWS PAGE (ITCSS + BEM)
 
-.news-page {
-  .layout__container {
-    container-type: inline-size;
+.news-page .layout__container {
+  container-type: inline-size; // Enable container queries
+}
+
+.news-page .layout__title {
+  color: $color-primary;
+  font-weight: bold;
+  text-transform: uppercase;
+  text-align: center;
+  margin: 0 0 2rem;
+  transition: font-size 0.3s ease;
+  font-size: 2rem; // Fallback base font size
+}
+
+// Responsive container queries for title text
+@container (width <= 400px) {
+  .news-page .layout__title {
+    font-size: 1.8rem;
   }
+}
 
-  .layout__title {
-    color: $color-primary;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 0 2rem;
-    transition: font-size 0.3s ease;
-    font-size: 2rem;
+@container (width > 400px) and (width <= 800px) {
+  .news-page .layout__title {
+    font-size: 2.4rem;
+  }
+}
 
-    @container (width <= 400px) {
-      font-size: 1.8rem;
-    }
-
-    @container (width > 400px) and (width <= 800px) {
-      font-size: 2.4rem;
-    }
-
-    @container (width > 800px) {
-      font-size: 3.2rem;
-    }
+@container (width > 800px) {
+  .news-page .layout__title {
+    font-size: 3.2rem;
   }
 }
 
@@ -32,77 +37,142 @@
   background-color: #fff;
   padding: 2rem;
   border-radius: $border-radius;
-  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
   display: flex;
   flex-direction: column;
   gap: 2rem;
+}
 
-  &__header {
-    text-align: center;
+.news__header {
+  text-align: center;
+}
 
-    .news__headline {
-      font-size: 1.8rem;
-      color: $color-primary;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
+.news__headline {
+  font-size: 1.8rem;
+  color: $color-primary;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
 
-    .news__meta {
-      font-size: 0.9rem;
-      color: $color-secondary;
-    }
+.news__meta {
+  font-size: 0.9rem;
+  color: $color-secondary;
+}
+
+.news__content {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.news__block {
+  flex: 1 1 100%;
+}
+
+// Style for images inside each content block
+.news__block--image img.news__image {
+  width: 100%;
+  height: 100%;
+  min-height: 300px;
+  object-fit: cover;
+  border-radius: $border-radius;
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+  transition: transform 0.4s ease;
+}
+
+.news__block--image img.news__image:hover {
+  transform: scale(1.02);
+}
+
+.news__block--text .news__text {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+// Typography for headings inside news text
+.news__text :is(h2, h3) {
+  font-size: 1.6rem;
+  color: $color-primary;
+  margin-top: 2rem;
+}
+
+// Style for quotes within articles
+.news__text blockquote {
+  font-style: italic;
+  border-left: 4px solid $color-secondary;
+  padding-left: 1rem;
+  margin: 1rem 0;
+  color: #555;
+}
+
+// Default styling for lists
+.news__text ul,
+.news__text ol {
+  padding-left: 1.5rem;
+  list-style-type: disc;
+}
+
+.news__text li {
+  margin-bottom: 0.5rem;
+}
+
+.news__footer {
+  text-align: center;
+  font-size: 0.9rem;
+  color: #777;
+  margin-top: 2rem;
+}
+
+/* --------------------------- */
+
+/* Desktop layout: two-column blocks */
+
+@media (width >= 1024px) {
+  .news__content {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 3rem;
   }
 
-  &__content {
+  .news__block {
+    flex: 1 1 50%;
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
-
-    :is(h2, h3) {
-      font-size: 1.6rem;
-      color: $color-primary;
-      margin-top: 2rem;
-    }
-
-    blockquote {
-      font-style: italic;
-      border-left: 4px solid $color-secondary;
-      padding-left: 1rem;
-      margin: 1rem 0;
-      color: #555;
-    }
-
-    ul, ol {
-      padding-left: 1.5rem;
-      list-style-type: disc;
-
-      li {
-        margin-bottom: 0.5rem;
-      }
-    }
-
-    .news__image {
-      width: 100%;
-      height: auto;
-      border-radius: $border-radius;
-      box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
-      transition: transform 0.4s ease;
-
-      &:hover {
-        transform: scale(1.02);
-      }
-    }
-
-    // Usamos :has() para modificar párrafos que tienen imagen justo después
-    p:has(+ .news__image) {
-      margin-bottom: 0;
-    }
+    justify-content: center;
   }
 
-  &__footer {
-    text-align: center;
-    font-size: 0.9rem;
-    color: #777;
-    margin-top: 2rem;
+  .news__block--image img.news__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    min-height: 350px;
   }
+}
+
+/* Tablet layout: center and limit image size */
+@media (768px <= width <= 1023px) {
+  .news__block--image {
+    display: flex;
+    justify-content: center;
+  }
+
+  .news__block--image img.news__image {
+    max-width: 80%;
+  }
+}
+
+// Apply frame style to image if blockquote is present
+.news__content:has(blockquote) .news__image {
+  border: 2px solid rgb(0 0 0 / 10%);
+  padding: 0.25rem;
+  border-radius: $border-radius;
+  box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+// Stronger frame on hover when blockquote is present
+.news__content:has(blockquote) .news__image:hover {
+  border-color: rgb(0 0 0 / 20%);
+  box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
 }

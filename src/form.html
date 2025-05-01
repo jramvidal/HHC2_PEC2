@@ -1,21 +1,89 @@
 <!DOCTYPE html>
 <html lang="ca">
   <head>
-    <title>Subscripció - Jornades sobre economia circular</title>
+    <!-- Font: Roboto (used globally) -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
+    <title>Registration – Circular Economy Conference</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="./assets/styles/main.scss" />
   </head>
   <body>
+    <!-- Global site header -->
     <include src="./views/header.html"></include>
 
     <main class="layout">
       <div class="layout__container">
-        <h1 class="layout__title">Subscripció</h1>
-        <!-- Contenido específico de speakers -->
+        <!-- Page heading -->
+        <h1 class="layout__title">Inscripció</h1>
+
+        <div class="subscription-form">
+          <!-- Registration form -->
+          <form class="row g-3">
+            <!-- Full name field -->
+            <div class="col-12">
+              <label for="inputName" class="form-label">Nom</label>
+              <input
+                type="text"
+                class="form-control"
+                id="inputName"
+                placeholder="Enter your name"
+                required
+              />
+            </div>
+
+            <!-- Email field -->
+            <div class="col-12">
+              <label for="inputEmail" class="form-label">Email</label>
+              <input
+                type="email"
+                class="form-control"
+                id="inputEmail"
+                placeholder="Enter your email"
+                required
+              />
+            </div>
+
+            <!-- Conference selection -->
+            <div class="col-12">
+              <label for="conferenceSelect" class="form-label">Conferència</label>
+              <select id="conferenceSelect" class="form-select" required>
+                <option value="">Tria una sessió...</option>
+                <option value="2025-05-10">May 12, 2025 – Què és l'economia circular</option>
+                <option value="2025-05-11">May 13, 2025 – Principis clau</option>
+                <option value="2025-05-12">May 14, 2025 – Beneficis ambientals</option>
+                <option value="2025-05-12">May 15, 2025 – Actua ara</option>
+              </select>
+            </div>
+
+            <!-- Privacy acceptance checkbox -->
+            <div class="col-12">
+              <div class="form-check d-flex align-items-center gap-2">
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  id="acceptTerms"
+                  required
+                />
+                <label class="form-check-label" for="acceptTerms">
+                  Accepto la política de privacitat
+                </label>
+              </div>
+            </div>
+
+            <!-- Submit button -->
+            <div class="col-12 text-center">
+              <button type="submit" class="btn btn-primary">Inscriu-t'hi</button>
+            </div>
+          </form>
+
+          <!-- Dynamic message displayed after submission -->
+          <div id="subscription-message" class="subscription-message"></div>
+        </div>
       </div>
     </main>
 
+    <!-- Global site footer -->
     <include src="./views/footer.html"></include>
     <script type="module" src="./assets/scripts/main.js"></script>
   </body>

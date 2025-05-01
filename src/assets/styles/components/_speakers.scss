@@ -1,11 +1,10 @@
 .layout {
-
   &__container {
     max-width: 1200px;
     margin: 0 auto;
     padding-inline: 1rem;
 
-    /* Activamos container queries */
+    // Enable container queries on the layout container
     container-type: inline-size;
   }
 
@@ -16,10 +15,10 @@
     text-align: center;
     margin: 0 0 2rem;
     transition: font-size 0.3s ease;
-    font-size: 2rem; /* valor base por si container queries no funciona */
+    font-size: 2rem; // Fallback base font size if container queries are not supported
   }
 
-  /* Container queries específicas para el título */
+  // Container query-based font scaling for title
   @container (width <= 400px) {
     &__title {
       font-size: 1.8rem;
@@ -63,6 +62,7 @@
   text-align: center;
   transition: transform 0.3s ease;
 
+  // Elevation effect on hover
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
@@ -95,22 +95,22 @@
   }
 }
 
-/* Responsive para móviles */
+// Responsive: Mobile layout (1 speaker per row)
 @media (width <= 600px) {
   .speaker {
     max-width: 90%;
   }
 }
 
-/* Responsive para tablets */
-@media (width > 600px) and (width <= 991px) {
+// Responsive: Tablet layout (2 speakers per row)
+@media (600px < width <= 991px) {
   .speaker {
     flex: 0 0 calc(50% - 2rem);
     max-width: calc(50% - 2rem);
   }
 }
 
-/* Responsive para escritorio */
+// Responsive: Desktop layout (3 speakers per row)
 @media (width >= 992px) {
   .speaker {
     flex: 0 0 calc(33.333% - 2rem);

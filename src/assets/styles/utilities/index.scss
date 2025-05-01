@@ -1,5 +1,5 @@
 // UTILITIES INDEX (ITCSS)
 // Forwards all utility modules (helpers, animations, etc.)
 
-@forward "helpers"; // Utility helper classes (currently empty)
-@forward "animations"; // Reusable animation keyframes (currently empty)
+@import "helpers"; // Utility helper classes (currently empty)
+@import "animations"; // Reusable animation keyframes (currently empty)

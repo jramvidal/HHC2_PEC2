@@ -1,14 +1,14 @@
 // ELEMENTS: TYPOGRAPHY (ITCSS)
 
-@use "../settings/variables" as v;
-@use "../tools/mixins" as m;
+@import "../settings/variables";
+@import "../tools/mixins";
 
 // Base font styles for the entire site
 body {
-  font-family: v.$font-primary;
-  font-size: v.$font-size-base;
+  font-family: $font-primary;
+  font-size: $font-size-base;
   line-height: 1.6;
-  color: v.$color-dark;
+  color: $color-dark;
 }
 
 // Headings (h1–h6)
@@ -19,45 +19,45 @@ h4,
 h5,
 h6 {
   font-weight: bold;
-  color: v.$color-primary;
+  color: $color-primary;
 }
 
 // Responsive font sizes using fluid typography mixin
 h1 {
-  @include m.fluid-text(24px, 36px);
+  @include fluid-text(24px, 36px);
 }
 
 h2 {
-  @include m.fluid-text(22px, 32px);
+  @include fluid-text(22px, 32px);
 }
 
 h3 {
-  @include m.fluid-text(20px, 28px);
+  @include fluid-text(20px, 28px);
 }
 
 h4 {
-  @include m.fluid-text(18px, 24px);
+  @include fluid-text(18px, 24px);
 }
 
 h5 {
-  @include m.fluid-text(16px, 22px);
+  @include fluid-text(16px, 22px);
 }
 
 h6 {
-  @include m.fluid-text(14px, 20px);
+  @include fluid-text(14px, 20px);
 }
 
 // Paragraphs and links
 p {
-  margin-bottom: v.$spacing-md;
+  margin-bottom: $spacing-md;
 }
 
 a {
-  color: v.$color-primary;
-  transition: color v.$transition-speed;
+  color: $color-primary;
+  transition: color $transition-speed;
 
   &:hover {
-    color: v.$color-secondary;
+    color: $color-secondary;
   }
 }
 

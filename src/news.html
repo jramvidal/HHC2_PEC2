@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="ca">
   <head>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet" />
     <title>Notícies - Jornades sobre economia circular</title>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,35 +20,81 @@
             <p class="news__meta">Publicat el 26 d'abril de 2025</p>
           </header>
 
+          <!-- First block: image on the left, text on the right -->
           <section class="news__content">
-            <p>La implantació d'un model d'economia circular és clau per reduir l'impacte ambiental i fomentar la sostenibilitat a llarg termini. Diverses iniciatives ja estan marcant el camí.</p>
+            <div class="news__block news__block--image">
+              <img
+                src="./assets/images/news/photo1.jpg"
+                alt="Exemple d'iniciativa d'economia circular"
+                class="news__image"
+              />
+            </div>
+            <div class="news__block news__block--text">
+              <div class="news__text">
+                <p>
+                  La implantació d'un model d'economia circular és clau per
+                  reduir l'impacte ambiental i fomentar la sostenibilitat a
+                  llarg termini. Diverses iniciatives ja estan marcant el camí,
+                  promovent un ús més eficient dels recursos, la reutilització
+                  de materials i la reducció de residus en tots els sectors
+                  econòmics.
+                </p>
+                <blockquote class="news__quote">
+                  "Adoptar l'economia circular no és només una opció
+                  intel·ligent, sinó una responsabilitat urgent per preservar el
+                  nostre planeta."
+                </blockquote>
+                <p>
+                  A mesura que aquestes pràctiques s’estenen, també s’incrementa
+                  la col·laboració entre administracions, empreses i ciutadania
+                  per construir un sistema productiu més resilient. L’educació
+                  ambiental i la innovació tecnològica juguen un paper
+                  fonamental per accelerar aquesta transició cap a un futur més
+                  responsable i circular.
+                </p>
+                
+              </div>
+            </div>
+          </section>
 
-            <img src="./assets/images/news/photo1.jpg" alt="Exemple d'iniciativa d'economia circular" class="news__image" />
-
-            <p>Moltes ciutats europees han posat en marxa projectes de reciclatge avançat, compostatge comunitari i reparació col·laborativa, contribuint de manera significativa a reduir residus.</p>
-
-            <blockquote class="news__quote">
-              "Adoptar l'economia circular no és només una opció intel·ligent, sinó una responsabilitat urgent per preservar el nostre planeta."
-            </blockquote>
-
-            <p>Els experts apunten que la clau de l'èxit radica en la implicació activa de la societat civil i les empreses locals en la transformació del model productiu.</p>
-
-            <ul class="news__list">
-              <li>Reciclatge de materials electrònics</li>
-              <li>Producció de bioplàstics a partir de residus orgànics</li>
-              <li>Mercats d'intercanvi i reutilització</li>
-            </ul>
-
-            <img src="./assets/images/news/photo2.jpg" alt="Mercat d'intercanvi local" class="news__image" />
-
-            <p>Amb una combinació d'innovació, educació i polítiques públiques adequades, l'economia circular pot convertir-se en el motor d'un futur més net i just per a tothom.</p>
+          <!-- Second block: text on the left, image on the right -->
+          <section class="news__content news">
+            <div class="news__block news__block--text">
+              <div class="news__text">
+                <p>
+                  Els experts apunten que la clau de l'èxit radica en la
+                  implicació activa de la societat civil i les empreses locals
+                  en la transformació del model productiu. A través de projectes
+                  innovadors es poden aconseguir canvis significatius en els
+                  hàbits de consum i en els processos industrials.
+                </p>
+                <p>
+                  Aquests projectes no només generen impacte ambiental positiu,
+                  sinó que també obren noves oportunitats d’ocupació i fomenten
+                  l’economia local. La participació comunitària i el suport
+                  institucional són elements essencials per consolidar un canvi
+                  real i durador en el territori.
+                </p>
+                <ul class="news__list">
+                  <li>Reciclatge de materials electrònics</li>
+                  <li>Producció de bioplàstics a partir de residus orgànics</li>
+                  <li>Mercats d'intercanvi i reutilització</li>
+                </ul>
+              </div>
+            </div>
+            <div class="news__block news__block--image">
+              <img
+                src="./assets/images/news/photo2.jpg"
+                alt="Mercat d'intercanvi local"
+                class="news__image"
+              />
+            </div>
           </section>
 
           <footer class="news__footer">
-            <p>Autor: Equip de comunicació de les Jornades</p>
+            <p>Autor: Juan Ramon Vidal</p>
           </footer>
         </article>
-
       </div>
     </main>
 

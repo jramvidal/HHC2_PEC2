@@ -1,12 +1,11 @@
 // OBJECT: IMAGE GROUP
 
-@use "../settings/variables" as v;
+@import "../settings/variables";
 
-// A reusable object for displaying multiple images in a flexible group
 .o-image-group {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap; // Allows images to wrap on smaller screens
-  gap: v.$spacing-sm; // Spacing between images
+  gap: $spacing-sm; // Spacing between images
 }
