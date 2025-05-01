@@ -16,18 +16,21 @@ document.addEventListener("DOMContentLoaded", function() {
   const links = document.querySelectorAll(".nav-link");
 
   let currentPath = window.location.pathname;
-  currentPath = currentPath.substring(currentPath.lastIndexOf("/") + 1);
 
-  // Normalitzem: si no hi ha res ("/") assumim "index"
-  if (currentPath === "" || currentPath === "/") {
+  // Normalizamos el path: quitamos slashes iniciales y extensión .html si existe
+  currentPath = currentPath.replace(/^\/+/, "").replace(/\.html$/, "");
+
+  // Si está vacío ("/"), asumimos "index"
+  if (currentPath === "") {
     currentPath = "index";
-  } else {
-    currentPath = currentPath.replace(".html", "");
   }
 
   links.forEach(link => {
-    let linkHref = link.getAttribute("href");
-    linkHref = linkHref.replace(".html", "");
+    let linkHref = link.getAttribute("href") || "";
+
+    // Normalizamos también el href del link
+    linkHref = linkHref.replace(/^\/+/, "").replace(/\.html$/, "");
+    if (linkHref === "") linkHref = "index";
 
     if (linkHref === currentPath) {
       link.classList.add("active");
