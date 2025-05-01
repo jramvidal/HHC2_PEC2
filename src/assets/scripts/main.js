@@ -12,20 +12,22 @@ import "@fortawesome/fontawesome-free/css/all.min.css"; // <-- AFEGIT: Font Awes
   console.log(`Hello, ${university}!`);
 } )();
 
-// AFEGIT: Detectar en quina pàgina estem i marcar el link actiu (versió millorada)
 document.addEventListener("DOMContentLoaded", function() {
   const links = document.querySelectorAll(".nav-link");
 
   let currentPath = window.location.pathname;
   currentPath = currentPath.substring(currentPath.lastIndexOf("/") + 1);
 
-  // Normalitzem: si no hi ha res ("/") assumim "index.html"
+  // Normalitzem: si no hi ha res ("/") assumim "index"
   if (currentPath === "" || currentPath === "/") {
-    currentPath = "index.html";
+    currentPath = "index";
+  } else {
+    currentPath = currentPath.replace(".html", "");
   }
 
   links.forEach(link => {
-    const linkHref = link.getAttribute("href");
+    let linkHref = link.getAttribute("href");
+    linkHref = linkHref.replace(".html", "");
 
     if (linkHref === currentPath) {
       link.classList.add("active");
@@ -34,3 +36,4 @@ document.addEventListener("DOMContentLoaded", function() {
     }
   });
 });
+

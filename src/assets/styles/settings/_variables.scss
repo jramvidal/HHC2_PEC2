@@ -5,23 +5,36 @@ $color-primary: #005f73; // Main brand color
 $color-secondary: #b8a474; // Secondary accent color
 $color-light: #f8f8f8; // Light background color
 $color-dark: #222; // Default text color
+$color-white: #fff; // Used in news cards
+$color-border-light: #e0e0e0; // Optional if reused
+$color-muted: #777; // Footer text
+$color-body: #555; // Blockquote or paragraph text
 
 // TYPOGRAPHY
 $font-primary: "Roboto", sans-serif; // Main font family
-$font-size-base: 1rem; // ✅ Base font size (compatible con Bootstrap)
+$font-size-base: 1rem;
+$font-size-sm: 0.9rem;
+$font-size-md: 1rem;
+$font-size-lg: 1.6rem;
+$font-size-xl: 1.8rem;
 
 // BREAKPOINTS
-$bp-tablet: 768px; // Min-width for tablet layout
-$bp-desktop: 1024px; // Min-width for desktop layout
+$bp-tablet: 768px;
+$bp-desktop: 1024px;
 
 // SPACING
-$spacing-sm: 8px; // Small spacing (e.g. margins/paddings)
-$spacing-md: 16px; // Medium spacing
-$spacing-lg: 32px; // Large spacing
-$spacing-xl: 64px; // Extra large spacing
+$spacing-xs: 0.5rem;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 32px;
+$spacing-xl: 64px;
+$spacing-2xl: 2rem;
+$spacing-3xl: 3rem;
+$spacing-list: 1.5rem;
+$padding-thin: 0.25rem;
 
 // TRANSITIONS
-$transition-speed: 0.3s ease-in-out; // Default transition timing for hover/focus effects
+$transition-speed: 0.3s ease-in-out;
 
 // EFFECTS
 $border-radius: 8px;

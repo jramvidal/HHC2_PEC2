@@ -1,7 +1,7 @@
 // COMPONENTS: NEWS PAGE (ITCSS + BEM)
 
 .news-page .layout__container {
-  container-type: inline-size; // Enable container queries
+  container-type: inline-size;
 }
 
 .news-page .layout__title {
@@ -9,12 +9,11 @@
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 2rem;
-  transition: font-size 0.3s ease;
-  font-size: 2rem; // Fallback base font size
+  margin: 0 0 $spacing-2xl;
+  transition: font-size $transition-speed;
+  font-size: 2rem;
 }
 
-// Responsive container queries for title text
 @container (width <= 400px) {
   .news-page .layout__title {
     font-size: 1.8rem;
@@ -34,12 +33,12 @@
 }
 
 .news {
-  background-color: #fff;
-  padding: 2rem;
+  background-color: $color-white;
+  padding: $spacing-2xl;
   border-radius: $border-radius;
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: $spacing-2xl;
 }
 
 .news__header {
@@ -47,28 +46,27 @@
 }
 
 .news__headline {
-  font-size: 1.8rem;
+  font-size: $font-size-xl;
   color: $color-primary;
   font-weight: bold;
-  margin-bottom: 0.5rem;
+  margin-bottom: $spacing-xs;
 }
 
 .news__meta {
-  font-size: 0.9rem;
+  font-size: $font-size-sm;
   color: $color-secondary;
 }
 
 .news__content {
   display: flex;
   flex-direction: column;
-  gap: 2rem;
+  gap: $spacing-2xl;
 }
 
 .news__block {
   flex: 1 1 100%;
 }
 
-// Style for images inside each content block
 .news__block--image img.news__image {
   width: 100%;
   height: 100%;
@@ -86,53 +84,48 @@
 .news__block--text .news__text {
   display: flex;
   flex-direction: column;
-  gap: 1.5rem;
+  gap: $spacing-list;
 }
 
-// Typography for headings inside news text
 .news__text :is(h2, h3) {
-  font-size: 1.6rem;
+  font-size: $font-size-lg;
   color: $color-primary;
-  margin-top: 2rem;
+  margin-top: $spacing-2xl;
 }
 
-// Style for quotes within articles
 .news__text blockquote {
   font-style: italic;
   border-left: 4px solid $color-secondary;
-  padding-left: 1rem;
-  margin: 1rem 0;
-  color: #555;
+  padding-left: $spacing-md;
+  margin: $spacing-md 0;
+  color: $color-body;
 }
 
-// Default styling for lists
 .news__text ul,
 .news__text ol {
-  padding-left: 1.5rem;
+  padding-left: $spacing-list;
   list-style-type: disc;
 }
 
 .news__text li {
-  margin-bottom: 0.5rem;
+  margin-bottom: $spacing-xs;
 }
 
 .news__footer {
   text-align: center;
-  font-size: 0.9rem;
-  color: #777;
-  margin-top: 2rem;
+  font-size: $font-size-sm;
+  color: $color-muted;
+  margin-top: $spacing-2xl;
 }
 
 /* --------------------------- */
-
-/* Desktop layout: two-column blocks */
 
 @media (width >= 1024px) {
   .news__content {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: 3rem;
+    gap: $spacing-3xl;
   }
 
   .news__block {
@@ -150,7 +143,6 @@
   }
 }
 
-/* Tablet layout: center and limit image size */
 @media (768px <= width <= 1023px) {
   .news__block--image {
     display: flex;
@@ -162,16 +154,14 @@
   }
 }
 
-// Apply frame style to image if blockquote is present
 .news__content:has(blockquote) .news__image {
   border: 2px solid rgb(0 0 0 / 10%);
-  padding: 0.25rem;
+  padding: $padding-thin;
   border-radius: $border-radius;
   box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
-  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  transition: border-color $transition-speed, box-shadow $transition-speed;
 }
 
-// Stronger frame on hover when blockquote is present
 .news__content:has(blockquote) .news__image:hover {
   border-color: rgb(0 0 0 / 20%);
   box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
