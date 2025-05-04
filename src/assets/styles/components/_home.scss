@@ -1,15 +1,9 @@
 // COMPONENTS: HOME (ITCSS + BEM)
 
-@import "../settings/variables";
-@import "../tools/index";
-@import "../objects/flex-container";
-@import "../objects/image-group";
-@import "../tools/mixins";
-
 .layout {
   background-color: $color-primary;
   color: $color-light;
-  padding-top: $spacing-md;
+  padding-top: spacing(1);
   padding-bottom: 0;
 
   &__container {
@@ -17,13 +11,13 @@
     color: $color-dark;
     max-width: 1200px;
     margin: 0 auto;
-    padding: $spacing-lg;
-    gap: 2rem;
+    padding: spacing(2);
+    gap: spacing(2);
     display: grid;
     grid-template-columns: 1fr;
 
     @include tablet {
-      gap: 3rem;
+      gap: spacing(3);
     }
 
     // Fallback using Flexbox if Grid is not supported
@@ -42,19 +36,19 @@
   @supports not (display: grid) {
     .layout__container > * {
       @include tablet {
-        flex: 1 1 calc(50% - $spacing-md);
-        margin-bottom: $spacing-md;
+        flex: 1 1 calc(50% - spacing(1));
+        margin-bottom: spacing(1);
       }
 
       @include desktop {
-        flex: 1 1 calc(33.33% - $spacing-md);
+        flex: 1 1 calc(33.33% - spacing(1));
       }
     }
   }
 
   &__hero {
     text-align: center;
-    padding: $spacing-xl 0;
+    padding: spacing(4) 0;
     background-color: $color-light;
     color: $color-dark;
 
@@ -95,7 +89,7 @@
   &__headline {
     color: $color-secondary;
     border-left: 0.4rem solid $color-secondary;
-    margin-bottom: $spacing-md;
+    margin-bottom: spacing(1);
     padding-left: 8px;
     font-size: px-to-rem(24);
     font-weight: bold;
@@ -104,7 +98,7 @@
   &__content {
     display: grid;
     grid-template-columns: 1fr;
-    gap: $spacing-md;
+    gap: spacing(1);
 
     // Two-column layout on tablet and up
     @include tablet {
@@ -124,7 +118,7 @@
 
     .btn {
       display: inline-block;
-      margin-top: $spacing-md;
+      margin-top: spacing(1);
     }
   }
 
@@ -150,6 +144,6 @@
   &__heading {
     color: $color-primary;
     font-weight: bold;
-    margin-bottom: $spacing-sm;
+    margin-bottom: spacing(0.5);
   }
 }

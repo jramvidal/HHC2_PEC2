@@ -1,8 +1,10 @@
+// COMPONENTS: SPEAKERS (ITCSS + BEM)
+
 .layout {
   &__container {
     max-width: 1200px;
     margin: 0 auto;
-    padding-inline: 1rem;
+    padding-inline: spacing(1);
 
     // Enable container queries on the layout container
     container-type: inline-size;
@@ -13,7 +15,7 @@
     font-weight: bold;
     text-transform: uppercase;
     text-align: center;
-    margin: 0 0 2rem;
+    margin: 0 0 spacing(2);
     transition: font-size 0.3s ease;
     font-size: 2rem; // Fallback base font size if container queries are not supported
   }
@@ -39,14 +41,14 @@
 }
 
 .speakers {
-  padding-block: 2rem;
+  padding-block: spacing(2);
 
   &__grid {
     display: flex;
     flex-wrap: wrap;
-    gap: 2rem;
+    gap: spacing(2);
     justify-content: center;
-    padding-top: 2rem;
+    padding-top: spacing(2);
   }
 }
 
@@ -75,21 +77,21 @@
   }
 
   &__date {
-    margin-top: 1rem;
+    margin-top: spacing(1);
     font-size: 0.9rem;
     color: #7a7a7a;
     font-weight: 500;
   }
 
   &__title {
-    margin: 0.5rem 1rem 0;
-    font-size: 1.2rem;
+    margin: spacing(0.5) spacing(1) 0;
+    font-size: px-to-rem(19.2);
     font-weight: bold;
     color: #333;
   }
 
   &__name {
-    margin: 0.5rem 1rem 1rem;
+    margin: spacing(0.5) spacing(1) spacing(1);
     font-size: 1rem;
     color: #555;
   }
@@ -105,7 +107,7 @@
 // Responsive: Tablet layout (2 speakers per row)
 @media (600px < width <= 991px) {
   .speaker {
-    flex: 0 0 calc(50% - 2rem);
+    flex: 0 0 calc(50% - 2rem); // Keeping calc() as-is for now
     max-width: calc(50% - 2rem);
   }
 }
@@ -113,7 +115,7 @@
 // Responsive: Desktop layout (3 speakers per row)
 @media (width >= 992px) {
   .speaker {
-    flex: 0 0 calc(33.333% - 2rem);
+    flex: 0 0 calc(33.333% - 2rem); // Same here
     max-width: calc(33.333% - 2rem);
   }
 }

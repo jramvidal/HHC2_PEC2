@@ -1,9 +1,9 @@
-// COMPONENT: SUBSCRIPTION FORM (ITCSS + BEM)
+// COMPONENT: FORM (ITCSS + BEM)
 
 .subscription-form {
   max-width: 600px;
   margin-inline: auto;
-  margin-top: 2rem;
+  margin-top: spacing(2);
 
   // Animate form appearance from bottom
   animation: fade-in-up 0.8s ease both;
@@ -11,27 +11,27 @@
   form {
     display: flex;
     flex-direction: column;
-    gap: 1.5rem;
+    gap: spacing(1.5);
 
     // Style for text inputs and checkboxes
     .form-control,
     .form-check-input {
       border-radius: $border-radius;
       box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
-      padding: 0.75rem;
+      padding: spacing(0.75);
     }
 
     // Style for select dropdowns
     .form-select {
       min-height: 50px;
-      padding: 0.75rem;
+      padding: spacing(0.75);
       border-radius: $border-radius;
       box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
     }
 
     // Style for submit button
     .btn {
-      padding: 0.75rem;
+      padding: spacing(0.75);
       font-weight: bold;
     }
   }
@@ -39,9 +39,9 @@
 
 // Message displayed after successful subscription
 .subscription-message {
-  margin-top: 1.5rem;
+  margin-top: spacing(1.5);
   text-align: center;
-  font-size: 1.1rem;
+  font-size: px-to-rem(17.6);
   font-weight: bold;
   color: $color-primary;
   opacity: 0;

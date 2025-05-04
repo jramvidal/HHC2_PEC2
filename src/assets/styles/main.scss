@@ -11,7 +11,10 @@
 @import "bootstrap/scss/bootstrap";
 
 // 3. Tools
-@import "tools/index";
+// Important: import functions before mixins (functions use variables)
+@import "tools/fonts";
+@import "tools/functions";
+@import "tools/mixins";
 
 // 4. Generic
 @import "generic/reset";

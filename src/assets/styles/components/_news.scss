@@ -1,5 +1,13 @@
 // COMPONENTS: NEWS PAGE (ITCSS + BEM)
 
+// Base font and colors for the whole site
+body {
+  font-family: $font-primary;
+  font-size: $font-size-base;
+  color: $color-dark;
+  background-color: $color-light;
+}
+
 .news-page .layout__container {
   container-type: inline-size;
 }
@@ -9,7 +17,7 @@
   font-weight: bold;
   text-transform: uppercase;
   text-align: center;
-  margin: 0 0 $spacing-2xl;
+  margin: 0 0 spacing(2);
   transition: font-size $transition-speed;
   font-size: 2rem;
 }
@@ -34,11 +42,11 @@
 
 .news {
   background-color: $color-white;
-  padding: $spacing-2xl;
+  padding: spacing(2);
   border-radius: $border-radius;
   display: flex;
   flex-direction: column;
-  gap: $spacing-2xl;
+  gap: spacing(2);
 }
 
 .news__header {
@@ -49,7 +57,7 @@
   font-size: $font-size-xl;
   color: $color-primary;
   font-weight: bold;
-  margin-bottom: $spacing-xs;
+  margin-bottom: spacing(0.5);
 }
 
 .news__meta {
@@ -60,7 +68,7 @@
 .news__content {
   display: flex;
   flex-direction: column;
-  gap: $spacing-2xl;
+  gap: spacing(2);
 }
 
 .news__block {
@@ -84,48 +92,49 @@
 .news__block--text .news__text {
   display: flex;
   flex-direction: column;
-  gap: $spacing-list;
+  gap: spacing(1.5);
 }
 
 .news__text :is(h2, h3) {
   font-size: $font-size-lg;
   color: $color-primary;
-  margin-top: $spacing-2xl;
+  margin-top: spacing(2);
 }
 
 .news__text blockquote {
   font-style: italic;
   border-left: 4px solid $color-secondary;
-  padding-left: $spacing-md;
-  margin: $spacing-md 0;
+  padding-left: spacing(1);
+  margin: spacing(1) 0;
   color: $color-body;
 }
 
 .news__text ul,
 .news__text ol {
-  padding-left: $spacing-list;
+  padding-left: spacing(1.5);
   list-style-type: disc;
 }
 
 .news__text li {
-  margin-bottom: $spacing-xs;
+  margin-bottom: spacing(0.5);
 }
 
 .news__footer {
   text-align: center;
   font-size: $font-size-sm;
   color: $color-muted;
-  margin-top: $spacing-2xl;
+  margin-top: spacing(2);
 }
 
 /* --------------------------- */
 
-@media (width >= 1024px) {
+// Desktop layout using $bp-desktop breakpoint
+@media (min-width: $bp-desktop) {
   .news__content {
     display: flex;
     flex-direction: row;
     align-items: stretch;
-    gap: $spacing-3xl;
+    gap: spacing(3);
   }
 
   .news__block {
@@ -143,7 +152,8 @@
   }
 }
 
-@media (768px <= width <= 1023px) {
+// Tablet layout using $bp-tablet and $bp-desktop
+@media (min-width: $bp-tablet) and (max-width: $bp-desktop - 1) {
   .news__block--image {
     display: flex;
     justify-content: center;
@@ -154,9 +164,10 @@
   }
 }
 
+// Enhanced styling for images in sections with quotes
 .news__content:has(blockquote) .news__image {
   border: 2px solid rgb(0 0 0 / 10%);
-  padding: $padding-thin;
+  padding: spacing(0.25);
   border-radius: $border-radius;
   box-shadow: 0 2px 6px rgb(0 0 0 / 5%);
   transition: border-color $transition-speed, box-shadow $transition-speed;
@@ -165,4 +176,11 @@
 .news__content:has(blockquote) .news__image:hover {
   border-color: rgb(0 0 0 / 20%);
   box-shadow: 0 4px 10px rgb(0 0 0 / 10%);
+}
+
+// Reorder image block in second section for mobile/tablet layout
+@media (max-width: $bp-desktop - 1) {
+  .news__content:nth-of-type(2) .news__block--image {
+    order: -1;
+  }
 }

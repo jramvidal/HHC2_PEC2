@@ -1,17 +1,13 @@
 // TOOLS: FUNCTIONS (ITCSS)
 
-// Removes units from a value (e.g. px → number)
-// Useful for consistent mathematical operations
-@function strip-units($value) {
-  @return math.div($value, $value * 0 + 1);
-}
-
 // Converts pixel values to rems based on the base font size
+// Function used in home.scss, speakers.scss and form.scss
 @function px-to-rem($px, $base: 16) {
   @return calc(#{$px} / #{$base} * 1rem);
 }
 
 // Generates spacing based on the base size
+// Function used in home.scss, speakers.scss, news.scss and form.scss
 @function spacing($factor) {
   @return $factor * $spacing-md;
 }
