@@ -1,6 +1,6 @@
 // GENERIC: RESET (ITCSS)
 
-@use "../settings/variables" as v;
+@import "../settings/variables";
 
 // Remove default margin, padding and set box-sizing globally
 * {
@@ -11,10 +11,10 @@
 
 // Normalize base font and background styles
 html {
-  font-size: v.$font-size-base;
-  font-family: v.$font-primary;
-  color: v.$color-dark;
-  background-color: v.$color-light;
+  font-size: $font-size-base;
+  font-family: $font-primary;
+  color: $color-dark;
+  background-color: $color-light;
 }
 
 // Remove default list styles

@@ -1,121 +1,138 @@
 // COMPONENTS: SPEAKERS (ITCSS + BEM)
 
-.layout {
-  &__container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding-inline: spacing(1);
+// === LAYERS CASCADING ORDER ===
+// Layer order: base → layout → components → utilities
 
-    // Enable container queries on the layout container
-    container-type: inline-size;
-  }
+@layer base, layout, components, utilities;
 
-  &__title {
-    color: $color-primary;
-    font-weight: bold;
-    text-transform: uppercase;
-    text-align: center;
-    margin: 0 0 spacing(2);
-    transition: font-size 0.3s ease;
-    font-size: 2rem; // Fallback base font size if container queries are not supported
-  }
+// LAYOUTS
+@layer layout {
+  // COMPONENT: PAGE LAYOUT CONTAINER
+  .layout {
+    &__container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding-inline: spacing(1);
 
-  // Container query-based font scaling for title
-  @container (width <= 400px) {
-    &__title {
-      font-size: 1.8rem;
+      // Enable container queries on the layout container
+      container-type: inline-size;
     }
-  }
 
-  @container (width > 400px) and (width <= 800px) {
     &__title {
-      font-size: 2.4rem;
+      color: $color-primary;
+      font-weight: bold;
+      text-transform: uppercase;
+      text-align: center;
+      margin: 0 0 spacing(2);
+      transition: font-size 0.3s ease;
+      font-size: 2rem; // Fallback base font size if container queries are not supported
     }
-  }
 
-  @container (width > 800px) {
-    &__title {
-      font-size: 3.2rem;
+    // Container query-based font scaling for title
+    @container (width <= 400px) {
+      &__title {
+        font-size: 1.8rem;
+      }
+    }
+
+    @container (width > 400px) and (width <= 800px) {
+      &__title {
+        font-size: 2.4rem;
+      }
+    }
+
+    @container (width > 800px) {
+      &__title {
+        font-size: 3.2rem;
+      }
     }
   }
 }
 
-.speakers {
-  padding-block: spacing(2);
+// COMPONENTS
+@layer components {
+  // COMPONENT: SPEAKERS SECTION
+  .speakers {
+    padding-block: spacing(2);
 
-  &__grid {
-    display: flex;
-    flex-wrap: wrap;
-    gap: spacing(2);
-    justify-content: center;
-    padding-top: spacing(2);
-  }
-}
-
-.speaker {
-  background-color: #fff;
-  border: 1px solid #e0e0e0;
-  border-radius: 0.75rem;
-  overflow: hidden;
-  width: 100%;
-  max-width: 300px;
-  display: flex;
-  flex-direction: column;
-  text-align: center;
-  transition: transform 0.3s ease;
-
-  // Elevation effect on hover
-  &:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+    &__grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: spacing(2);
+      justify-content: center;
+      padding-top: spacing(2);
+    }
   }
 
-  &__image {
+  // COMPONENT: INDIVIDUAL SPEAKER CARD
+  .speaker {
+    background-color: #fff;
+    border: 1px solid #e0e0e0;
+    border-radius: 0.75rem;
+    overflow: hidden;
     width: 100%;
-    height: auto;
-    display: block;
-  }
+    max-width: 300px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    transition: transform 0.3s ease;
 
-  &__date {
-    margin-top: spacing(1);
-    font-size: 0.9rem;
-    color: #7a7a7a;
-    font-weight: 500;
-  }
+    // Elevation effect on hover
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 4px 20px rgb(0 0 0 / 10%);
+    }
 
-  &__title {
-    margin: spacing(0.5) spacing(1) 0;
-    font-size: px-to-rem(19.2);
-    font-weight: bold;
-    color: #333;
-  }
+    &__image {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
 
-  &__name {
-    margin: spacing(0.5) spacing(1) spacing(1);
-    font-size: 1rem;
-    color: #555;
+    &__date {
+      margin-top: spacing(1);
+      font-size: 0.9rem;
+      color: #7a7a7a;
+      font-weight: 500;
+    }
+
+    &__title {
+      margin: spacing(0.5) spacing(1) 0;
+      font-size: px-to-rem(19.2);
+      font-weight: bold;
+      color: #333;
+    }
+
+    &__name {
+      margin: spacing(0.5) spacing(1) spacing(1);
+      font-size: 1rem;
+      color: #555;
+    }
   }
 }
 
-// Responsive: Mobile layout (1 speaker per row)
-@media (width <= 600px) {
-  .speaker {
-    max-width: 90%;
+// UTILITIES / RESPONSIVE BREAKPOINTS
+@layer utilities {
+  // Responsive: Mobile layout (1 speaker per row)
+  @media (width <= 600px) {
+    .speaker {
+      max-width: 90%;
+    }
   }
-}
 
-// Responsive: Tablet layout (2 speakers per row)
-@media (600px < width <= 991px) {
-  .speaker {
-    flex: 0 0 calc(50% - 2rem); // Keeping calc() as-is for now
-    max-width: calc(50% - 2rem);
+  // Responsive: Tablet layout (2 speakers per row)
+  @media (600px < width <= 991px) {
+    .speaker {
+      flex: 0 0 calc(50% - 2rem);
+      max-width: calc(50% - 2rem);
+    }
   }
-}
 
-// Responsive: Desktop layout (3 speakers per row)
-@media (width >= 992px) {
-  .speaker {
-    flex: 0 0 calc(33.333% - 2rem); // Same here
-    max-width: calc(33.333% - 2rem);
+  // Responsive: Desktop layout (3 speakers per row)
+  @media (width >= 992px) {
+    .speaker {
+      flex: 0 0 calc(33.333% - 2rem);
+      max-width: calc(33.333% - 2rem);
+    }
   }
 }

@@ -5,6 +5,10 @@
       "selector-class-pattern": "^[a-z]([a-z0-9-]+)?(__([a-z0-9]+-?)+)?(--([a-z0-9]+-?)+){0,2}$",
       "scss/load-partial-extension": "never",
       "scss/dollar-variable-pattern": "^[_a-z]+[a-z0-9-]*$",
-      "scss/selector-no-redundant-nesting-selector": true
+      "scss/selector-no-redundant-nesting-selector": true,
+      "color-named": "never",
+      "selector-max-id": 0,
+      "shorthand-property-no-redundant-values": true,
+      "selector-max-compound-selectors": 3
     }
   }
